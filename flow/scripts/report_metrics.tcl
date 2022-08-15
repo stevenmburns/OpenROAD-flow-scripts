@@ -154,4 +154,11 @@ proc report_metrics { when {include_erc true} } {
   report_design_area
 
   puts ""
+  puts "Pin slack report (begin)"
+  foreach pin [get_pins -hierarchical *] {
+    puts "[get_property $pin full_name] [get_property $pin max_rise_slack] [get_property $pin max_fall_slack]"
+  }
+  puts "Pin slack report (end)"
+  
 }
+
