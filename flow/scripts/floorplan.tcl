@@ -1,3 +1,4 @@
+utl::set_metrics_stage "floorplan__{}"
 source $::env(SCRIPTS_DIR)/load.tcl
 load_design 1_synth.v 1_synth.sdc "Starting floorplan"
 
@@ -37,8 +38,10 @@ if {[info exists ::env(FOOTPRINT)]} {
 
 if { [info exists ::env(MAKE_TRACKS)] } {
   source $::env(MAKE_TRACKS)
-} else {
+} elseif {[file exists $::env(PLATFORM_DIR)/make_tracks.tcl]} {
   source $::env(PLATFORM_DIR)/make_tracks.tcl
+} else {
+  make_tracks
 }
 
 if {[info exists ::env(FOOTPRINT_TCL)]} {
@@ -90,15 +93,19 @@ if { [info exist ::env(RESYNTH_TIMING_RECOVER)] && $::env(RESYNTH_TIMING_RECOVER
 
 puts "Default units for flow"
 report_units
+report_units_metric
 source $::env(SCRIPTS_DIR)/report_metrics.tcl
 report_metrics "floorplan final" false
 
 if { [info exist ::env(RESYNTH_AREA_RECOVER)] && $::env(RESYNTH_AREA_RECOVER) == 1 } {
 
+  utl::push_metrics_stage "floorplan__{}__pre_restruct"
   set num_instances [llength [get_cells -hier *]]
   puts "number instances before restructure is $num_instances"
   puts "Design Area before restructure"
   report_design_area
+  report_design_area_metrics
+  utl::pop_metrics_stage
 
   if {![info exists save_checkpoint] || $save_checkpoint} {
     write_verilog $::env(RESULTS_DIR)/2_pre_abc.v
@@ -123,10 +130,13 @@ if { [info exist ::env(RESYNTH_AREA_RECOVER)] && $::env(RESYNTH_AREA_RECOVER) ==
   if {![info exists save_checkpoint] || $save_checkpoint} {
     write_verilog $::env(RESULTS_DIR)/2_post_abc.v
   }
+  utl::push_metrics_stage "floorplan__{}__post_restruct
   set num_instances [llength [get_cells -hier *]]
   puts "number instances after restructure is $num_instances"
   puts "Design Area after restructure"
   report_design_area
+  report_design_area_metrics
+  utl::pop_metrics_stage
 }
 
 if { [info exists ::env(POST_FLOORPLAN_TCL)] } {
