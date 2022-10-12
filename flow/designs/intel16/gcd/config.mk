@@ -12,5 +12,4 @@ export CORE_UTILIZATION    = 20
 export CORE_ASPECT_RATIO   = 1
 export CORE_MARGIN         = 1
 
-export PLACE_DENSITY = uniform
 export ABC_CLOCK_PERIOD_IN_PS = 1000

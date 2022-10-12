@@ -73,8 +73,11 @@
 # DESIGN_CONFIG=./designs/asap7/uart/config.mk
 # DESIGN_CONFIG=./designs/asap7/sha3/config.mk
 
-DESIGN_CONFIG=./designs/intel16/gcd/config.mk
+# DESIGN_CONFIG=./designs/intel16/gcd/config.mk
 # DESIGN_CONFIG=./designs/intel16/ibex/config.mk
+# DESIGN_CONFIG=./designs/intel16/priority_mux_256/config.mk
+# DESIGN_CONFIG=./designs/intel16/full_adder/config.mk
+DESIGN_CONFIG=./designs/intel16/bitonic_16/config.mk
 # DESIGN_CONFIG=./designs/intel22/gcd/config.mk
 # DESIGN_CONFIG=./designs/intel22/aes/config.mk
 #
