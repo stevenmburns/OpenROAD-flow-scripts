@@ -17,12 +17,13 @@ proc report_metrics { when {include_erc true} {include_clock_skew true} } {
   report_worst_slack_metric
 
   if {$include_clock_skew} {
-    puts "\n=========================================================================="
-    puts "$when report_clock_skew"
-    puts "--------------------------------------------------------------------------"
-    report_clock_skew
-    report_clock_skew_metric
-    report_clock_skew_metric -hold
+    # SMB: disable because if failes if reg-reg paths are missing
+    #puts "\n=========================================================================="
+    #puts "$when report_clock_skew"
+    #puts "--------------------------------------------------------------------------"
+    #report_clock_skew
+    #report_clock_skew_metric
+    #report_clock_skew_metric -hold
   }
   
   puts "\n=========================================================================="
