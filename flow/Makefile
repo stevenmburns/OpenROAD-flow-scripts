@@ -15,6 +15,9 @@
 # DESIGN_CONFIG=./designs/nangate45/swerv_wrapper/config.mk
 # DESIGN_CONFIG=./designs/nangate45/tiny-tests/config.mk
 # DESIGN_CONFIG=./designs/nangate45/tinyRocket/config.mk
+# DESIGN_CONFIG=./designs/nangate45/rohd_ex/config.mk
+# DESIGN_CONFIG=./designs/nangate45/ibex_sv/config.mk
+DESIGN_CONFIG=./designs/nangate45/popcount/config.mk
 
 # DESIGN_CONFIG=./designs/tsmc65lp/aes/config.mk
 # DESIGN_CONFIG=./designs/tsmc65lp/ariane/config.mk
@@ -73,7 +76,7 @@
 # DESIGN_CONFIG=./designs/asap7/uart/config.mk
 # DESIGN_CONFIG=./designs/asap7/sha3/config.mk
 
-DESIGN_CONFIG=./designs/intel16/gcd/config.mk
+# DESIGN_CONFIG=./designs/intel16/gcd/config.mk
 # DESIGN_CONFIG=./designs/intel16/ibex/config.mk
 # DESIGN_CONFIG=./designs/intel16/priority_mux_256/config.mk
 # DESIGN_CONFIG=./designs/intel16/full_adder/config.mk
@@ -263,6 +266,14 @@ YOSYS_CMD               ?= $(shell command -v yosys)
 ifeq ($(YOSYS_CMD),)
   YOSYS_CMD              = $(abspath $(FLOW_HOME)/../tools/install/yosys/bin/yosys)
 endif
+
+ifneq ($(USE_SURELOG),)
+  YOSYS_CMD = $(abspath $(FLOW_HOME)/../tools/install/image/bin/yosys)
+  SURELOG_PLUGIN = systemverilog
+  YOSYS_FLAGS += -m $(SURELOG_PLUGIN)
+endif
+
+
 
 KLAYOUT_CMD             ?= $(shell command -v klayout)
 

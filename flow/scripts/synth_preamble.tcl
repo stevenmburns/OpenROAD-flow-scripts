@@ -18,12 +18,18 @@ if {[info exist ::env(VERILOG_INCLUDE_DIRS)]} {
 }
 
 
-# Read verilog files
-foreach file $::env(VERILOG_FILES) {
-  read_verilog -defer -sv {*}$vIdirsArgs $file
+
+if {[info exist ::env(USE_SURELOG)]} {
+  # Read system verilog files
+  foreach file $::env(VERILOG_FILES) {
+    read_systemverilog -defer -nowarning=WRN:PA0205 -sv {*}$vIdirsArgs $file
+  }
+} else {
+  # Read verilog files
+  foreach file $::env(VERILOG_FILES) {
+    read_verilog -defer -sv {*}$vIdirsArgs $file
+  }
 }
-
-
 
 
 # Read standard cells and macros as blackbox inputs
@@ -63,3 +69,6 @@ if {[info exist ::env(BLOCKS)]} {
   }
 }
 
+if {[info exist ::env(USE_SURELOG)]} {
+  read_systemverilog -link
+}
