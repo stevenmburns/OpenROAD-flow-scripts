@@ -17,7 +17,7 @@
 # DESIGN_CONFIG=./designs/nangate45/tinyRocket/config.mk
 # DESIGN_CONFIG=./designs/nangate45/rohd_ex/config.mk
 # DESIGN_CONFIG=./designs/nangate45/ibex_sv/config.mk
-DESIGN_CONFIG=./designs/nangate45/popcount/config.mk
+# DESIGN_CONFIG=./designs/nangate45/popcount/config.mk
 
 # DESIGN_CONFIG=./designs/tsmc65lp/aes/config.mk
 # DESIGN_CONFIG=./designs/tsmc65lp/ariane/config.mk
@@ -408,8 +408,7 @@ clean_synth:
 	rm -f  $(LOG_DIR)/1_*
 	rm -f  $(SYNTH_STOP_MODULE_SCRIPT)
 	rm -rf _tmp_yosys-abc-*
-
-
+	rm -rf slpp_all/
 # ==============================================================================
 #  _____ _     ___   ___  ____  ____  _        _    _   _
 # |  ___| |   / _ \ / _ \|  _ \|  _ \| |      / \  | \ | |
