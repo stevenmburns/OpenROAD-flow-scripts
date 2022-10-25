@@ -84,6 +84,7 @@
 # DESIGN_CONFIG=./designs/nangate45/latch_based_reg_file/config.mk
 # DESIGN_CONFIG=./designs/intel16/latch_based_reg_file/config.mk
 # DESIGN_CONFIG=./designs/intel16/bitonic_16/config.mk
+DESIGN_CONFIG=./designs/intel16/popcount/config.mk
 # DESIGN_CONFIG=./designs/intel22/gcd/config.mk
 # DESIGN_CONFIG=./designs/intel22/aes/config.mk
 #
