@@ -22,7 +22,7 @@ if {[info exist ::env(VERILOG_INCLUDE_DIRS)]} {
 if {[info exist ::env(USE_SURELOG)]} {
   # Read system verilog files
   foreach file $::env(VERILOG_FILES) {
-    read_systemverilog -defer -nowarning=WRN:PA0205 -sv {*}$vIdirsArgs $file
+    read_systemverilog -defer +define+SYNTHESIS= -sv {*}$vIdirsArgs $file
   }
 } else {
   # Read verilog files

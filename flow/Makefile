@@ -78,6 +78,7 @@
 
 DESIGN_CONFIG=./designs/intel16/gcd/config.mk
 # DESIGN_CONFIG=./designs/intel16/ibex/config.mk
+# DESIGN_CONFIG=./designs/intel16/ibex_sv/config.mk
 # DESIGN_CONFIG=./designs/intel16/priority_mux_256/config.mk
 # DESIGN_CONFIG=./designs/intel16/full_adder/config.mk
 # DESIGN_CONFIG=./designs/intel16/clkgate/config.mk
