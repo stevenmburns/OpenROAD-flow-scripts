@@ -1,6 +1,6 @@
-export DESIGN_NICKNAME = ibex_sv
-export DESIGN_NAME = ibex_core
-export PLATFORM    = nangate45
+export DESIGN_NICKNAME        = ibex_sv
+export DESIGN_NAME            = ibex_core
+export PLATFORM               = intel16
 
 export USE_SURELOG = 1
 export VERILOG_INCLUDE_DIRS = ./designs/src/$(DESIGN_NICKNAME) ./designs/src/$(DESIGN_NICKNAME)/prim ./designs/src/$(DESIGN_NICKNAME)/dv_utils
@@ -32,9 +32,9 @@ export VERILOG_FILES = \
 
 export SDC_FILE      = ./designs/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
 
-# These values must be multiples of placement site
-# x=0.19 y=1.4
-export DIE_AREA    = 0 0 300.01 299.6 
-export CORE_AREA   = 10.07 11.2 289.94 289.8 
+export CORE_UTILIZATION       = 28 
+export CORE_ASPECT_RATIO      = 1
+export CORE_MARGIN            = 2
+export PLACE_DENSITY_LB_ADDON  = 0.20
 
-export PLACE_DENSITY_LB_ADDON = 0.20
+export ENABLE_DPO = 0
