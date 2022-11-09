@@ -18,7 +18,10 @@
 # DESIGN_CONFIG=./designs/nangate45/rohd_ex/config.mk
 # DESIGN_CONFIG=./designs/nangate45/ibex_sv/config.mk
 # DESIGN_CONFIG=./designs/nangate45/popcount/config.mk
-
+# DESIGN_CONFIG=./designs/nangate45/brent_kung_256/config.mk
+DESIGN_CONFIG=./designs/nangate45/han_carlson_256/config.mk
+# DESIGN_CONFIG=./designs/nangate45/sklansky_256/config.mk
+# DESIGN_CONFIG=./designs/nangate45/kogge_stone_256/config.mk
 # DESIGN_CONFIG=./designs/tsmc65lp/aes/config.mk
 # DESIGN_CONFIG=./designs/tsmc65lp/ariane/config.mk
 # DESIGN_CONFIG=./designs/tsmc65lp/black_parrot/config.mk
